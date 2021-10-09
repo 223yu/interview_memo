@@ -1,0 +1,30 @@
+<div class='errors'>
+  <%= render 'layouts/errors', obj: @user %>
+</div>
+<div class='devise'>
+  <h4 class='devise__title'>ログイン</h2>
+
+  <%= form_with model: @user, url: new_user_session_path, class:'devise__form-group', local: true do |f| %>
+
+    <div class='devise__form-row'>
+      <%= f.label :email, 'メールアドレス', class:'devise__form-row-label' %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'devise__form-row-field' %>
+    </div>
+
+    <div class='devise__form-row'>
+      <%= f.label :password, 'パスワード', class:'devise__form-row-label' %>
+      <%= f.password_field :password, autocomplete: "current-password", class:'devise__form-row-field' %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class='devise__form-row'>
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end %>
+
+    <div class='devise__form-row'>
+      <%= f.submit "ログイン", class:'devise__form-row-btn' %>
+    </div>
+  <% end %>
+</div>

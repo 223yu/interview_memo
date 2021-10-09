@@ -1,0 +1,19 @@
+@import 'application';
+
+.errors{
+  width: 100%;
+  background: $pink;
+  position: sticky;
+  left: 0;
+
+  &__title,
+  &__list{
+    @extend %max-width;
+    display: block;
+    font-size: 16px;
+  }
+
+  &__list{
+    list-style: none;
+  }
+}
