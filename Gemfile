@@ -26,8 +26,9 @@ end
 
 group :test do
   gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
-  gem 'chromedriver-helper'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :production do
@@ -35,3 +36,9 @@ group :production do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'devise'
+gem 'jquery-rails'
+gem 'font-awesome-sass', '~> 5.13'
+gem 'rails-i18n'
+gem 'devise-i18n'
