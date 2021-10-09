@@ -1,0 +1,51 @@
+@import 'application';
+
+.navbar{
+  background: $sub;
+  z-index: 10;
+
+  &__items{
+    @extend %max-width;
+    position: sticky;
+    list-style: none;
+    display: flex;
+  }
+
+  &__logo{
+    height: 60px;
+    line-height: 60px;
+    width: 250px;
+    margin-right: auto;
+  }
+
+  &__logo-link{
+    @extend %link;
+    color: white;
+  }
+
+  &__item{
+    width: 170px;
+    text-align: center;
+    padding: 10px 10px;
+  }
+
+  &__item-btn{
+    @extend %link;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    width: 150px;
+    border-radius: 10px;
+    background: $main;
+
+    &--answer{
+      @extend .navbar__item-btn;
+      background: $accent1;
+    }
+
+    &--question{
+      @extend .navbar__item-btn;
+      background: $accent2;
+    }
+  }
+}
