@@ -1,0 +1,28 @@
+<header class='navbar'>
+  <ul class='navbar__items'>
+    <li class='navbar__logo'>
+      <%= link_to 'どこでも就活面接対策カード', root_path, class: 'navbar__logo-link' %>
+    </li>
+    <% if user_signed_in? %>
+      <li class='navbar__item'>
+        <%= link_to 'フォロータグ編集', tags_path, class: 'navbar__item-btn' %>
+      </li>
+      <li class='navbar__item'>
+        <%= link_to '回答済質問一覧', answers_path, class: 'navbar__item-btn--answer' %>
+      </li>
+      <li class='navbar__item'>
+        <%= link_to '未回答質問一覧', questions_path, class: 'navbar__item-btn--question' %>
+      </li>
+      <li class='navbar__item'>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'navbar__item-btn' %>
+      </li>
+    <% else %>
+      <li class='navbar__item'>
+        <%= link_to '新規登録', new_user_registration_path, class: 'navbar__item-btn' %>
+      </li>
+      <li class='navbar__item'>
+        <%= link_to 'ログイン', new_user_session_path, class: 'navbar__item-btn' %>
+      </li>
+    <% end %>
+  </ul>
+</header>
