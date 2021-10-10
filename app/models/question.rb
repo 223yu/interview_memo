@@ -5,5 +5,5 @@ class Question < ApplicationRecord
   end
 
   has_many :answers, dependent: :destroy
-  has_many :question_tags, dependent: :destroy
+  belongs_to :tag
 end

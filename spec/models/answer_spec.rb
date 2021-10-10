@@ -30,7 +30,7 @@ RSpec.describe '回答モデルに関するテスト', type: :model do
     end
   end
   
-  describe 'バリデーションのテスト' do
+  describe 'アソシエーションのテスト' do
     it '質問モデルとの関係がN:1となっている' do
       expect(Answer.reflect_on_association(:question).macro).to eq :belongs_to
     end
