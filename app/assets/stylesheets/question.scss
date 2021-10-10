@@ -1,0 +1,44 @@
+@import 'application';
+
+.question{
+  @extend %max-width;
+
+  &__add-btn{
+    @extend %link;
+    text-align: center;
+    margin: 30px 0 0 auto;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    width: 150px;
+    border-radius: 10px;
+    background: $accent2;
+  }
+
+  &__table{
+    margin: 30px auto 0 auto;
+    border-collapse: collapse;
+  }
+
+  &__th,
+  &__td{
+    border: 1px solid;
+    padding: 5px;
+  }
+
+  &__th-title{
+    @extend .question__th;
+    background: $accent2;
+    text-align: center;
+  }
+
+  &__answer-field{
+    width: 300px;
+  }
+
+  &__link{
+    @extend %link;
+    font-size: 20px;
+    padding-left: 5px;
+  }
+}
