@@ -1,0 +1,12 @@
+<div class='tag__items'>
+  <% tags_hash[genre].each do |key, value| %>
+    <div class='tag__item'>
+      <% if value[:status] %>
+        <%= check_box_tag "tag_check_#{key}", true, true, {class:'tag__check-box'} %>
+      <% else %>
+        <%= check_box_tag "tag_check_#{key}", true, false, {class:'tag__check-box'} %>
+      <% end %>
+      <%= label_tag "tag_check_#{key}", value[:name], class: 'tag__check-label' %>
+    </div>
+  <% end %>
+</div>
