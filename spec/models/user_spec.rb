@@ -35,4 +35,13 @@ RSpec.describe 'ユーザモデルに関するテスト', type: :model do
       end
     end
   end
+  
+  describe 'バリデーションのテスト' do
+    it '回答モデルとの関係が1:Nとなっている' do
+      expect(User.reflect_on_association(:answers).macro).to eq :has_many
+    end
+    it 'フォロータグモデルとの関係が1:Nとなっている' do
+      expect(User.reflect_on_association(:follow_tags).macro).to eq :has_many
+    end
+  end
 end

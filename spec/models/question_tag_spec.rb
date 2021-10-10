@@ -25,4 +25,13 @@ RSpec.describe '質問タグモデルに関するテスト', type: :model do
       end
     end
   end
+
+  describe 'バリデーションのテスト' do
+    it 'タグモデルとの関係がN:1となっている' do
+      expect(QuestionTag.reflect_on_association(:tag).macro).to eq :belongs_to
+    end
+    it '質問モデルとの関係がN:1となっている' do
+      expect(QuestionTag.reflect_on_association(:question).macro).to eq :belongs_to
+    end
+  end
 end
