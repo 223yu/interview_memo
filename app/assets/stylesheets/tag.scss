@@ -1,0 +1,27 @@
+@import 'application';
+
+.tag{
+  @extend %max-width;
+
+  &__page-title{
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  &__items-title{
+    margin: 30px 0 10px 0;
+  }
+
+  &__items{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item{
+    width: 250px;
+  }
+
+  &__check-label{
+    margin-right: 50px;
+  }
+}
