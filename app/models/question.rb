@@ -3,7 +3,7 @@ class Question < ApplicationRecord
     validates :body
     validates :answer_count
   end
-  
+
   has_many :answers, dependent: :destroy
-  has_many :question, dependent: :destroy
+  has_many :question_tags, dependent: :destroy
 end
