@@ -12,14 +12,15 @@ $(document).on('turbolinks:load', function() {
     // checkを入れた時
     if(checked == true){
       $.ajax({
-        url: '/tags/' + tag_id,
-        type: 'PATCH',
+        url: '/tag_follows',
+        type: 'POST',
+        data: { tag_id: tag_id},
         dataType: 'script'
       });
     // checkを外した時
     }else if(checked == false){
       $.ajax({
-        url: '/tags/' + tag_id,
+        url: '/tag_follows/' + tag_id,
         type: 'DELETE',
         dataType: 'script'
       });
