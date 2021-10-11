@@ -1,8 +1,9 @@
 class TagFollowsController < ApplicationController
-  
+
   def create
     tag = Tag.find(params[:tag_id])
-    if FollowTag.create(user_id: current_user.id, tag_id: tag.id)
+    follow_tag = FollowTag.new(user_id: current_user.id, tag_id: tag.id)
+    if follow_tag.save
       flash.now[:success] = "#{tag.name}をフォローしました。"
     else
       flash.now[:danger] = '問題が発生しました。画面をリロードしてください。'
