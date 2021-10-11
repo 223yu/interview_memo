@@ -1,5 +1,5 @@
 <% questions.each do |question| %>
-  <tr class='question__tr'>
+  <tr class='question__tr-<%= question.id %>'>
     <td class='question__td'><%= question.tag.name %></td>
     <td class='question__td'><%= question.answer_count %></td>
     <td class='question__td'><%= question.body %></td>
@@ -7,9 +7,7 @@
       <%= text_field_tag 'body', nil, class:'question__answer-field' %>
     </td>
     <td class='question__td--btn'>
-      <%= link_to answers_path, method: :post, class: 'question__link', remote: true do %>
-        <i class="far fa-save"></i>
-      <% end %>
+      <a href='#' class='question__link'><i class="far fa-save"></i></a>
     </td>
   </tr>
 <% end %>
