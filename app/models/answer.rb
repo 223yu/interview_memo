@@ -13,7 +13,7 @@ class Answer < ApplicationRecord
   def save_and_increase_answer_count
     is_true = true
     Answer.transaction(joinable: false, requires_new: true) do
-      is_true &= self.save!
+      is_true &= self.save
       question = Question.find(question_id)
       is_true &= question.update(answer_count: question.answer_count + 1)
 
