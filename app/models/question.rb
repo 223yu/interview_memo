@@ -18,4 +18,5 @@ class Question < ApplicationRecord
     unanswerd_questions = all_questions - answered_questions
     unanswerd_questions.sort{|a,b| b.answer_count <=> a.answer_count}
   end
+
 end

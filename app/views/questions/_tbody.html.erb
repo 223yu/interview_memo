@@ -1,13 +1,3 @@
 <% questions.each do |question| %>
-  <tr class='question__tr-<%= question.id %>'>
-    <td class='question__td'><%= question.tag.name %></td>
-    <td class='question__td'><%= question.answer_count %></td>
-    <td class='question__td'><%= question.body %></td>
-    <td class='question__td'>
-      <%= text_field_tag 'body', nil, class:'question__answer-field' %>
-    </td>
-    <td class='question__td--btn'>
-      <a href='#' class='question__link'><i class="far fa-save"></i></a>
-    </td>
-  </tr>
+  <%= render 'td', question: question %>
 <% end %>

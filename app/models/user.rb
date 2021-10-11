@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :follow_tags, dependent: :destroy
 
   # 追加メソッド
-  # タグのフォロー状況を返す
+  # 全てのタグのフォロー状況を返す
   def return_follow_status_tags
     # タグの一覧を取得する
     hash = { '状態' => {}, '職種' => {} }
@@ -30,5 +30,15 @@ class User < ApplicationRecord
       end
     end
     hash
+  end
+
+    # フォローしているタグをarray形式で返す
+  def return_follow_tags_array
+    array = []
+    follow_tags = FollowTag.where(user_id: self.id).order(:tag_id)
+    follow_tags.each do |follow_tag|
+      array.push([follow_tag.tag.name, follow_tag.tag_id])
+    end
+    array
   end
 end

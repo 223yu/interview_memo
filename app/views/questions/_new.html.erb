@@ -1,0 +1,19 @@
+<div class='modal__area'>
+  <div class='modal__background'></div>
+  <a href='' class='modal__close-btn'><i class="far fa-times-circle"></i></a>
+  <div class='modal__content'>
+    <%= form_with model: question, url: questions_path, class:'question__new-form' do |f| %>
+      <div class='question__new-form-field'>
+        <%= f.label :body, '【質問】', class:'question__new-form-label' %>
+        <%= f.text_field :body, class:'question__new-form-text' %>
+      </div>
+      <div class='question__new-form-field'>
+        <%= f.label :tag_id, '【タグ】', class:'question__new-form-label' %>
+        <%= f.select :tag_id, @follow_tags, { include_blank: '選択してください' }, { class:'question__new-form-select'} %>
+      </div>
+      <div class='question__new-form-field'>
+        <%= f.submit '投稿', class:'question__new-form-btn' %>
+      </div>
+    <% end %>
+  </div>
+</div>

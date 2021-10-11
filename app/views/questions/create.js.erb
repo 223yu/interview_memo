@@ -1,0 +1,10 @@
+$('.flash').html('<%= j(render 'layouts/flash') %>');
+
+<% if @question.errors.any? %>
+  $('.flash').html('');
+  $('.modal__content').prepend('<%= j(render 'layouts/errors', obj: @question) %>');
+<% else %>
+  $('.question__tbody').append('<%= j(render 'questions/td', question: @question) %>');
+  $('.modal__area').fadeOut();
+  $('.modal__close-btn').fadeOut();
+<% end %>
