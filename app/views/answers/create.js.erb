@@ -1,0 +1,8 @@
+$('.flash').html('<%= j(render 'layouts/flash') %>');
+
+<% if @answer.errors.any? %>
+  $('.flash').html('');
+  $('.flash').append('<%= j(render 'layouts/errors', obj: @answer) %>');
+<% elsif flash[:danger].nil? %>
+  $('.question__tr-<%= @question_id %>').remove();
+<% end %>

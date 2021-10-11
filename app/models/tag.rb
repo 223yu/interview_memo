@@ -8,6 +8,6 @@ class Tag < ApplicationRecord
     validates :genre
   end
   
-  has_many :question_tags, dependent: :destroy
+  has_many :questions, dependent: :destroy
   has_many :follow_tags, dependent: :destroy
 end

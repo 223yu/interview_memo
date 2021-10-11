@@ -1,0 +1,22 @@
+<div class='question'>
+  <%= render 'layouts/follow_tags', follow_tags: @follow_tags %>
+
+  <%= link_to '新規質問投稿', questions_path, method: :post, class:'question__add-btn', remote: true %>
+
+  <table class='question__table'>
+    <thead class='question__thead'>
+      <tr class='question__tr'>
+        <th class='question__th-title' colspan='4'>質問一覧</th>
+      </tr>
+      <tr class='question__tr'>
+        <th class='question__th'>タグ</th>
+        <th class='question__th'>回答数</th>
+        <th class='question__th'>質問</th>
+        <th class='question__th'>回答</th>
+      </tr>
+    </thead>
+    <tbody class='question__tbody'>
+      <%= render 'tbody', questions: @questions %>
+    </tbody>
+  </table>
+</div>

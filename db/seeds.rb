@@ -17,6 +17,7 @@ end
 
 CSV.foreach('db/csv/question.csv', headers: true) do |row|
   Question.create!(
+    tag_id: row['tag_id'],
     body: row['body'],
     answer_count: row['answer_count'],
   )
@@ -33,13 +34,6 @@ end
 CSV.foreach('db/csv/follow_tag.csv', headers: true) do |row|
   FollowTag.create!(
     user_id: row['user_id'],
-    tag_id: row['tag_id'],
-  )
-end
-
-CSV.foreach('db/csv/question_tag.csv', headers: true) do |row|
-  QuestionTag.create!(
-    question_id: row['question_id'],
     tag_id: row['tag_id'],
   )
 end
