@@ -26,10 +26,25 @@
 // 色定義
 $pink: rgba(255, 193, 193, 0.7);
 $green: rgba(0, 255, 127, 0.7);
+$gray: rgba(127, 127, 127, 1);
 $main: rgba(237, 228, 215, 1.0);
 $sub: rgba(22, 98, 77, 1.0);
 $accent1: rgba(199, 152, 63, 1.0);
 $accent2: rgba(197, 88, 35, 1.0);
+
+// ブレイクポイント
+$breakpoints: (
+  'sm': 'screen and (min-width: 540px)',
+  'md': 'screen and (min-width: 720px)',
+  'lg': 'screen and (min-width: 960px)',
+  'xl': 'screen and (min-width: 1140px)'
+) !default;
+
+@mixin mq($breakpoint: md){
+  @media #{map-get($breakpoints, $breakpoint)}{
+    @content;
+  }
+}
 
 // body
 body{

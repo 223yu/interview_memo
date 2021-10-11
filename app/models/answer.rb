@@ -9,7 +9,7 @@ class Answer < ApplicationRecord
   belongs_to :question
 
   # 追加メソッド
-  # 回答を保存する
+  # 回答を保存し、回答数を1増やす
   def save_and_increase_answer_count
     is_true = true
     Answer.transaction(joinable: false, requires_new: true) do

@@ -41,4 +41,18 @@
     font-size: 20px;
     padding-left: 5px;
   }
+
+  &__new-form-field{
+    margin: 20px 0;
+  }
+
+  &__new-form-text{
+    width: 90%;
+  }
+
+  &__new-form-btn{
+    @extend %btn;
+    width: 100px;
+    margin: 0 auto;
+  }
 }

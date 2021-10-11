@@ -1,7 +1,7 @@
 <div class='question'>
   <%= render 'layouts/follow_tags', follow_tags: @follow_tags %>
 
-  <%= link_to '新規質問投稿', questions_path, method: :post, class:'question__add-btn', remote: true %>
+  <%= link_to '新規質問投稿', new_question_path, class:'question__add-btn', remote: true %>
 
   <table class='question__table'>
     <thead class='question__thead'>
