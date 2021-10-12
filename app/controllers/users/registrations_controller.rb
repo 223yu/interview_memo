@@ -10,9 +10,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+    # 一般タグをフォロー
+    FollowTag.create(user_id: resource.id, tag_id: 1)
+  end
 
   # GET /resource/edit
   # def edit
