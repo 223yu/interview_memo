@@ -13,9 +13,6 @@ class AnswersController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def create
     @question_id = params[:question_id]
     answer_body = params[:answer_body]
@@ -26,8 +23,19 @@ class AnswersController < ApplicationController
   end
 
   def update
+    answer_body = params[:answer_body]
+    @answer = Answer.find(params[:id])
+    if @answer.update(body: answer_body)
+      flash.now[:success] = '回答を更新しました。'
+    end
   end
 
   def destroy
+    @answer = Answer.find(params[:id])
+    if @answer.destroy_and_decrease_answer_count
+      flash.now[:success] = '回答を削除しました。'
+    else
+      flash.now[:danger] = '問題が発生しました。画面をリロードしてください。'
+    end
   end
 end

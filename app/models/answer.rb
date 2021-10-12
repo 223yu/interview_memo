@@ -25,4 +25,19 @@ class Answer < ApplicationRecord
     end
     is_true
   end
+
+  # 回答を削除し、回答数を1減らす
+  def destroy_and_decrease_answer_count
+    is_true = true
+    Answer.transaction(joinable: false, requires_new: true) do
+      question = Question.find(self.question_id)
+      is_true &= self.destroy
+      is_true &= question.update(answer_count: question.answer_count - 1)
+
+      unless is_true
+        raise ActiveRecord::Rollback
+      end
+    end
+    is_true
+  end
 end
