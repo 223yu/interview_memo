@@ -20,7 +20,7 @@ $(document).on('turbolinks:load', function() {
     $.ajax({
       url: '/answers/' + answer_id,
       type: 'PATCH',
-      data: { answer_body: answer_body },
+      data: { body: answer_body },
       dataType: 'script'
     });
   });
@@ -56,4 +56,32 @@ $(document).on('turbolinks:load', function() {
     });
     return answer_body;
   }
+
+  // 「ランダムに出題」ボタンをクリックした時、answers#randomに送る
+  const target = ['.question__random-btn', '.question__random-btn--next'];
+  target.forEach(function(target){
+    $(document).on('click', target,function(e){
+      // 本来のaタグの効果を無効化
+      e.preventDefault();
+
+      const answer_ids = [];
+      $('.question__tbody').children(('tr')).each(function(){
+        answer_ids.push(Number($(this).attr('class').substr(13)))
+      });
+      $.ajax({
+        url: '/answers/random',
+        type: 'GET',
+        data: { answer_ids: answer_ids},
+        dataType: 'script'
+      });
+    });
+  });
+
+  // 「ランダムに出題」画面にて、回答を表示ボタンをクリックした時
+  $(document).on('click', '.question__random-btn--left', function(e){
+    // 本来のaタグの効果を無効化
+    e.preventDefault();
+
+    $('.question__random-answer-field').css('display', 'block');
+  });
 });

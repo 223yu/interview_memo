@@ -1,0 +1,6 @@
+<!-- すでにモーダルウィンドウのDOMが存在する場合削除 -->
+$('.modal__area').remove();
+
+$('.question').before('<%= j(render 'random', question: @question, answer: @answer) %>');
+$('.modal__area').fadeIn();
+$('.modal__close-btn').fadeIn();

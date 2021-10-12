@@ -23,10 +23,20 @@ class AnswersController < ApplicationController
   end
 
   def update
-    answer_body = params[:answer_body]
+    # random出題からはformで、questionからはquestion.jsから送られてくる
     @answer = Answer.find(params[:id])
-    if @answer.update(body: answer_body)
-      flash.now[:success] = '回答を更新しました。'
+    if params[:body]
+      answer_body = params[:body]
+      if @answer.update(body: answer_body)
+        flash.now[:success] = '回答を更新しました。'
+      end
+    else
+      if @answer.update(answer_params)
+        flash.now[:success] = '回答を更新しました。'
+      end
+      respond_to do |format|
+        format.js { render 'random_answer.js.erb' }
+      end
     end
   end
 
@@ -37,5 +47,17 @@ class AnswersController < ApplicationController
     else
       flash.now[:danger] = '問題が発生しました。画面をリロードしてください。'
     end
+  end
+
+  def random
+    answer_ids = params[:answer_ids]
+    @answer = Answer.find(answer_ids.sample)
+    @question = Question.find(@answer.question_id)
+  end
+
+  private
+
+  def answer_params
+    params.require(:answer).permit(:body)
   end
 end

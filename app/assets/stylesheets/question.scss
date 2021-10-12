@@ -15,9 +15,23 @@
     background: $accent2;
   }
 
-  &__random-btn{
+  &__random-btn,
+  &__random-answer-btn{
     @extend .question__add-btn;
     background: $accent1;
+    border: none;
+
+    &--left{
+      @extend .question__random-btn;
+      margin: 30px auto 0 0;
+    }
+
+    &--next{
+      @extend .question__random-btn;
+      position: absolute;
+      top: 30px;
+      right: 30px;
+    }
   }
 
   &__table{
@@ -60,7 +74,8 @@
     margin: 20px 0;
   }
 
-  &__new-form-text{
+  &__new-form-text,
+  &__random-answer-text-field{
     width: 90%;
   }
 
@@ -68,5 +83,14 @@
     @extend %btn;
     width: 100px;
     margin: 0 auto;
+  }
+
+  &__random-question-field{
+    margin: 30px 0;
+  }
+
+  &__random-answer-field{
+    margin: 30px 0;
+    display: none;
   }
 }
