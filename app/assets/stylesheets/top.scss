@@ -1,0 +1,29 @@
+@import 'application';
+
+.top{
+  @extend %max-width;
+  text-align: center;
+
+  &__about,
+  &__function,
+  &__start{
+    margin: 100px 0;
+  }
+
+  &__about-title,
+  &__function-title,
+  &__start-title{
+    margin-bottom: 30px;
+  }
+
+  &__about-item,
+  &__function-item,
+  &__start-item{
+    list-style: none;
+  }
+
+  &__function-item,
+  &__start-item{
+    margin-bottom: 20px;
+  }
+}
