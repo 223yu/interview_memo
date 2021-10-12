@@ -15,6 +15,11 @@
     background: $accent2;
   }
 
+  &__random-btn{
+    @extend .question__add-btn;
+    background: $accent1;
+  }
+
   &__table{
     margin: 30px auto 0 auto;
     border-collapse: collapse;
@@ -28,8 +33,17 @@
 
   &__th-title{
     @extend .question__th;
-    background: $accent2;
     text-align: center;
+
+    &--question{
+      @extend .question__th-title;
+      background: $accent2;
+    }
+
+    &--answer{
+      @extend .question__th-title;
+      background: $accent1;
+    }
   }
 
   &__answer-field{

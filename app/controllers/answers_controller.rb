@@ -1,6 +1,16 @@
 class AnswersController < ApplicationController
 
   def index
+    if params[:follow_tag_ids]
+      @follow_tags = FollowTag.return_follow_tags_index(params[:follow_tag_ids])
+    else
+      @follow_tags = FollowTag.where(user_id: current_user.id).order(:tag_id)
+    end
+    @questions = Question.return_answered_questions(current_user, @follow_tags)
+    respond_to do |format|
+      format.html
+      format.js { render 'questions/index.js.erb' }
+    end
   end
 
   def edit

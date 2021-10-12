@@ -1,0 +1,11 @@
+<tr class='question__tr-<%= question[0] %>'>
+  <td class='question__td'><%= question[1] %></td>
+  <td class='question__td'><%= question[4] %></td>
+  <td class='question__td'><%= question[2] %></td>
+  <td class='question__td'>
+    <%= text_field_tag 'body', question[3], class:'question__answer-field' %>
+  </td>
+  <td class='question__td--btn'>
+    <a href='' class='question__link'><i class="far fa-save"></i></a>
+  </td>
+</tr>
