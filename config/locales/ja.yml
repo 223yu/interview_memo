@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        email: メールアドレス
+        password: パスワード
+        name: 名前
+
+      answer:
+        body: 回答
+
+      question:
+        body: 質問
+        tag: タグ
+
+      tag:
+        name: タグ名
