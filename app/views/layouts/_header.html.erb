@@ -5,13 +5,13 @@
     </li>
     <% if user_signed_in? %>
       <li class='navbar__item'>
-        <%= link_to 'フォロータグ編集', tags_path, class: 'navbar__item-btn' %>
+        <%= link_to 'フォロータグ編集', tags_path, 'data-turbolinks': false, class: 'navbar__item-btn' %>
       </li>
       <li class='navbar__item'>
-        <%= link_to '回答済質問一覧', answers_path, class: 'navbar__item-btn--answer' %>
+        <%= link_to '回答済質問一覧', answers_path, 'data-turbolinks': false, class: 'navbar__item-btn--answer' %>
       </li>
       <li class='navbar__item'>
-        <%= link_to '未回答質問一覧', questions_path, class: 'navbar__item-btn--question' %>
+        <%= link_to '未回答質問一覧', questions_path, 'data-turbolinks': false, class: 'navbar__item-btn--question' %>
       </li>
       <li class='navbar__item'>
         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'navbar__item-btn' %>

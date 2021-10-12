@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     registrations: "users/registrations"
   }
 
-  resources :answers, only: [:index, :edit, :create, :update, :destroy]
+  resources :answers, only: [:index, :create, :update, :destroy]
   resources :questions, only: [:index, :new, :create]
   resources :tags, only: [:index]
   resources :tag_follows, only: [:create, :destroy]
