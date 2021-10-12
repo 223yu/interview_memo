@@ -1,0 +1,8 @@
+$('.flash').html('<%= j(render 'layouts/flash') %>');
+
+<% if @answer.errors.any? %>
+  $('.flash').html('');
+  $('.modal__content').prepend('<%= j(render 'layouts/errors', obj: @answer) %>');
+<% else %>
+  $('.question__tr-<%= @answer.id %>').find('input[type="text"]').val('<%= @answer.body %>');
+<% end %>
