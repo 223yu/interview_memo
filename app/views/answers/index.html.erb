@@ -1,12 +1,12 @@
 <div class='question'>
   <%= render 'layouts/follow_tags', follow_tags: @follow_tags %>
 
-  <%= link_to '新規質問投稿', new_question_path, class:'question__add-btn', remote: true %>
+  <%= link_to 'ランダムに出題', new_question_path, class:'question__random-btn', remote: true %>
 
   <table class='question__table'>
     <thead class='question__thead'>
       <tr class='question__tr'>
-        <th class='question__th-title--question' colspan='4'>未回答質問一覧</th>
+        <th class='question__th-title--answer' colspan='4'>回答済質問一覧</th>
       </tr>
       <tr class='question__tr'>
         <th class='question__th'>タグ</th>
@@ -16,7 +16,7 @@
       </tr>
     </thead>
     <tbody class='question__tbody'>
-      <%= render 'tbody', questions: @questions %>
+      <%= render 'questions/tbody', questions: @questions %>
     </tbody>
   </table>
 </div>
