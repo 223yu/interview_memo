@@ -4,7 +4,8 @@
   <div class='modal__content'>
     <a href='' class='question__random-btn--next'>次の問題へ</a>
     <div class='question__random-question-field'>
-      <p class='question__random-question'>【質問】 <%= question.body %></p>
+      <p class='question__random-question'>【質問】</p>
+      <p class='question__random-question'><%= safe_join(question.body.split("\n"), tag(:br)) %></p>
     </div>
     <div class='question__random-question-field'>
       <p class='question__random-question'>【タグ】 <%= question.tag.name %></p>
@@ -13,7 +14,7 @@
     <div class='question__random-answer-field'>
       <p class='question__random-answer'>【回答】</p>
       <%= form_with model: answer, url: answer_path(answer.id), class:'question__random-answer-form' do |f| %>
-        <%= f.text_field :body, class:'question__random-answer-text-field' %>
+        <%= f.text_area :body, class:'question__random-answer-text-field' %>
         <%= f.submit '更新', class:'question__random-answer-btn' %>
       <% end %>
     </div>

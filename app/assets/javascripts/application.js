@@ -15,3 +15,15 @@
 //= require turbolinks
 //= require jquery
 //= require_tree .
+
+$(document).on('turbolinks:load', function() {
+  // load時、内容に合わせて表示するtextareaの高さを調整する
+  $('textarea').each(function(){
+    $(this).height(this.scrollHeight);
+  });
+
+  // textareaに入力時、内容に合わせて表示sる高さを調整する
+  $(document).on('change keyup', 'textarea', function(){
+    $(this).height(this.scrollHeight);
+  });
+});

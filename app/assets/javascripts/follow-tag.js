@@ -15,6 +15,11 @@ $(document).on('turbolinks:load', function() {
       type: 'GET',
       data: { follow_tag_ids: follow_tag_ids },
       dataType: 'script'
+    })
+    .done(function(){
+      $('textarea').each(function(){
+        $(this).height(this.scrollHeight);
+      });
     });
   });
 });

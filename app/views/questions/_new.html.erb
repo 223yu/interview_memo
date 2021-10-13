@@ -5,7 +5,8 @@
     <%= form_with model: question, url: questions_path, class:'question__new-form' do |f| %>
       <div class='question__new-form-field'>
         <%= f.label :body, '【質問】', class:'question__new-form-label' %>
-        <%= f.text_field :body, class:'question__new-form-text' %>
+        <!--< %= f.safe_join(question.body.split('\n'), tag(:br)) %>-->
+        <%= f.text_area :body, class:'question__new-form-text' %>
       </div>
       <div class='question__new-form-field'>
         <%= f.label :tag_id, '【タグ】', class:'question__new-form-label' %>
