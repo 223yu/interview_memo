@@ -46,7 +46,7 @@ $(document).on('turbolinks:load', function() {
     // 本来のaタグの効果を無効化
     e.preventDefault();
     const tr = selector.parent();
-    const answer_body = tr.find('input[type="text"]').val();
+    const answer_body = tr.find('textarea').val();
     const token = document.getElementsByName('csrf-token')[0].content;
 
     $.ajaxSetup({
@@ -81,7 +81,10 @@ $(document).on('turbolinks:load', function() {
   $(document).on('click', '.question__random-btn--left', function(e){
     // 本来のaタグの効果を無効化
     e.preventDefault();
-
     $('.question__random-answer-field').css('display', 'block');
+
+    // question.bodyの内容に応じて高さを変更
+    const this_field = $('.question__random-answer-text-field');
+    this_field.height(this_field.get(0).scrollHeight);
   });
 });
