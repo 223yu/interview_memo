@@ -10,7 +10,7 @@
     color: black;
     z-index: 200;
 
-    @include mq(xl){
+    @include mq-up(xl){
       right: calc(-50px + (100vw - 1000px)/2);
     }
   }

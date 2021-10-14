@@ -37,12 +37,36 @@
   &__table{
     margin: 30px auto 0 auto;
     border-collapse: collapse;
+    table-layout: fixed;
+
+    @include mq-down(lg){
+      display: block;
+      overflow-x: scroll;
+      -webkit-overflow-scrolling: touch;
+    }
   }
 
   &__th,
   &__td{
     border: 1px solid;
     padding: 5px;
+  }
+
+  &__th{
+    // タグ
+    &:nth-child(1){
+      min-width: 60px;
+    }
+    // 回答数
+    &:nth-child(2){
+      min-width: 60px;
+    }
+    // 質問、回答
+    &:nth-child(3),
+    &:nth-child(4){
+      min-width: 200px;
+      width: 40%;
+    }
   }
 
   &__th-title{
@@ -61,7 +85,7 @@
   }
 
   &__answer-field{
-    width: 300px;
+    width: 100%;
   }
 
   &__link{
