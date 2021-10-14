@@ -26,4 +26,10 @@ $(document).on('turbolinks:load', function() {
   $(document).on('change keyup', 'textarea', function(){
     $(this).height(this.scrollHeight);
   });
+
+  // ハンバーガーメニューの表示を切り替える
+  $(document).on('click', '.navbar__openbtn', function(){
+    $(this).toggleClass('active');
+    $('.navbar__items').toggleClass('active');
+  });
 });

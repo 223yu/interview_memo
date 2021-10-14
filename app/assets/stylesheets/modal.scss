@@ -35,6 +35,7 @@
     max-height: 95vh;
     overflow: scroll;
     @extend %max-width;
+    max-width: 1000px;
     background: white;
     border-radius: 20px;
     padding: 30px;
