@@ -29,5 +29,8 @@
 
   &__function-img{
     @extend %max-width;
+    @include mq-up(md){
+      width: 600px;
+    }
   }
 }
