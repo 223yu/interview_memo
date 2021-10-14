@@ -33,15 +33,28 @@ $accent1: rgba(199, 152, 63, 1.0);
 $accent2: rgba(197, 88, 35, 1.0);
 
 // ブレイクポイント
-$breakpoints: (
+$breakpoint-up: (
   'sm': 'screen and (min-width: 540px)',
   'md': 'screen and (min-width: 720px)',
   'lg': 'screen and (min-width: 960px)',
   'xl': 'screen and (min-width: 1140px)'
 ) !default;
 
-@mixin mq($breakpoint: md){
-  @media #{map-get($breakpoints, $breakpoint)}{
+$breakpoint-down: (
+  'sm': 'screen and (max-width: 540px)',
+  'md': 'screen and (max-width: 720px)',
+  'lg': 'screen and (max-width: 960px)',
+  'xl': 'screen and (max-width: 1140px)'
+) !default;
+
+@mixin mq-up($breakpoint: md){
+  @media #{map-get($breakpoint-up, $breakpoint)}{
+    @content;
+  }
+}
+
+@mixin mq-down($breakpoint: md){
+  @media #{map-get($breakpoint-down, $breakpoint)}{
     @content;
   }
 }
@@ -53,7 +66,7 @@ body{
 
 // コンテナ
 %max-width{
-  width: 1000px;
+  width: 90%;
   margin: 0 auto ;
 }
 

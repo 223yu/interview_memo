@@ -26,4 +26,8 @@
   &__start-item{
     margin-bottom: 20px;
   }
+
+  &__function-img{
+    @extend %max-width;
+  }
 }

@@ -5,29 +5,51 @@
   z-index: 10;
   position: sticky;
   top: 0;
-
-  &__items{
-    @extend %max-width;
-    list-style: none;
-    display: flex;
-  }
+  display: flex;
 
   &__logo{
+    @extend %link;
+    color: white;
     height: 60px;
     line-height: 60px;
     width: 250px;
-    margin-right: auto;
+    margin: 0 auto 0 30px;
   }
 
-  &__logo-link{
-    @extend %link;
-    color: white;
+  &__menu{
+    display: none;
+    @include mq-down(xl){
+      display: block;
+      margin-right: 30px;
+    }
+  }
+
+  &__items{
+    list-style: none;
+    display: flex;
+    @include mq-down(xl){
+      position: fixed;
+      top: 60px;
+      right: -100%;
+      padding-top: 60px;
+      flex-direction: column;
+      height: 100%;
+      width: 100%;
+      background: $gray;
+      &.active{
+        right: 0;
+      }
+    }
   }
 
   &__item{
     width: 170px;
     text-align: center;
     padding: 10px 10px;
+    @include mq-down(xl){
+      margin: 0 auto;
+      opacity: 1;
+    }
   }
 
   &__item-btn{
@@ -47,6 +69,73 @@
     &--question{
       @extend .navbar__item-btn;
       background: $accent2;
+    }
+  }
+
+  // ハンバーガーメニュー
+  &__openbtn{
+    position: relative;
+    top: 5px;
+    background:$accent1;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    margin-left: auto;
+    z-index: 100;
+
+    & span{
+      display: inline-block;
+      transition: all .4s;
+      position: absolute;
+      left: 14px;
+      height: 2px;
+      border-radius: 5px;
+      background: #fff;
+      width: 45%;
+
+      &:nth-child(1){
+        top: 13px;
+      }
+      &:nth-child(2){
+        top: 19px;
+      }
+      &:nth-child(3){
+        top: 25px;
+      }
+      &:nth-child(3)::after{
+        content:"Menu";
+        position: absolute;
+        top:5px;
+        left:-2px;
+        color: #fff;
+        font-size: 0.6rem;
+        text-transform: uppercase;
+      }
+    }
+
+    &.active span{
+      &:nth-child(1){
+        top: 14px;
+        left: 18px;
+        transform: translateY(6px) rotate(-45deg);
+        width: 30%;
+      }
+      &:nth-child(2){
+        opacity: 0;
+      }
+      &:nth-child(3){
+        top: 26px;
+        left: 18px;
+        transform: translateY(-6px) rotate(45deg);
+        width: 30%;
+      }
+      &:nth-child(3)::after{
+        content:"Close";
+        transform: translateY(0) rotate(-45deg);
+        top:5px;
+        left:4px;
+      }
     }
   }
 }
