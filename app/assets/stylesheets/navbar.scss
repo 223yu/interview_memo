@@ -131,7 +131,7 @@
         width: 30%;
       }
       &:nth-child(3)::after{
-        content:"Close";/*3つ目の要素のafterにClose表示を指定*/
+        content:"Close";
         transform: translateY(0) rotate(-45deg);
         top:5px;
         left:4px;
