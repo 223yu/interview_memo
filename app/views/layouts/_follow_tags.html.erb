@@ -1,5 +1,5 @@
 <div class='follow-tag'>
-  <p class='follow-tag__title'>フォロータグ</p>
+  <p class='follow-tag__title'>チェックすると質問一覧に表示</p>
   <% follow_tags.each do |follow_tag| %>
     <div class='follow-tag__item'>
       <%= check_box_tag "tag_check_#{follow_tag.id}", true, true, {class:'follow-tag__check-box'} %>
